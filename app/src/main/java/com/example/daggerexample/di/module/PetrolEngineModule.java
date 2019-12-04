@@ -5,11 +5,20 @@ import com.example.daggerexample.entitys.PetrolEngine;
 
 import dagger.Binds;
 import dagger.Module;
+import dagger.Provides;
 
 @Module
-public abstract class PetrolEngineModule {
+public class PetrolEngineModule {
 
-    @Binds
-    public abstract Engine bindEngine(PetrolEngine engine);
+    public String hoursPower;
+
+    public PetrolEngineModule(String hoursPower) {
+        this.hoursPower = hoursPower;
+    }
+
+    @Provides
+    public Engine provideEngine(){
+        return new PetrolEngine(hoursPower);
+    }
 
 }

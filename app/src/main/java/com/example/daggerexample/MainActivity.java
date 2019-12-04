@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import com.example.daggerexample.di.component.CarComponent;
 import com.example.daggerexample.di.component.DaggerCarComponent;
+import com.example.daggerexample.di.module.PetrolEngineModule;
 import com.example.daggerexample.entitys.Car;
 
 import javax.inject.Inject;
@@ -20,7 +21,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        CarComponent carComponent = DaggerCarComponent.create();
+        CarComponent carComponent = DaggerCarComponent.builder()
+                .petrolEngineModule(new PetrolEngineModule(100+""))
+                .build();
+
         carComponent.inject(this);
 
         car.drive();
