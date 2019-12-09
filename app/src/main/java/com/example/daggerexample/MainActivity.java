@@ -22,10 +22,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         ActivityComponent activityComponent = ((App)(getApplication())).getAppComponent()
-                .getActivityComponentBuilder()
-                .horsePower(100)
-                .engineCapacity(200)
-                .build();
+                .getActivityComponentFactory()
+                .create(100,200);
 
 
 

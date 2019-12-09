@@ -30,7 +30,7 @@ public class Car {
 
     public void drive(){
         engine.start();
-        Log.i(TAG, "drive: "+this+" "+this.driver+" "+this.engine +" "+this.wheel );
+        Log.i(TAG, "drive: "+this+" "+this.driver+" "+this.engine +" "+this.wheel+" "+this.driver.name );
     }
 
 
