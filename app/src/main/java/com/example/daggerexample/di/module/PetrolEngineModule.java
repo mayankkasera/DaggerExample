@@ -8,17 +8,8 @@ import dagger.Module;
 import dagger.Provides;
 
 @Module
-public class PetrolEngineModule {
+public abstract class PetrolEngineModule {
 
-    public String hoursPower;
-
-    public PetrolEngineModule(String hoursPower) {
-        this.hoursPower = hoursPower;
-    }
-
-    @Provides
-    public Engine provideEngine(){
-        return new PetrolEngine(hoursPower);
-    }
-
+    @Binds
+    abstract Engine bindEngine(PetrolEngine engine);
 }
