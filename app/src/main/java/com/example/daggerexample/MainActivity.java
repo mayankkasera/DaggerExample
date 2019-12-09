@@ -6,7 +6,6 @@ import android.os.Bundle;
 
 import com.example.daggerexample.di.component.ActivityComponent;
 import com.example.daggerexample.di.component.AppComponent;
-import com.example.daggerexample.di.component.DaggerActivityComponent;
 import com.example.daggerexample.entitys.Car;
 
 import javax.inject.Inject;
@@ -22,10 +21,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        ActivityComponent activityComponent = DaggerActivityComponent.builder()
+        ActivityComponent activityComponent = ((App)(getApplication())).getAppComponent()
+                .getActivityComponentBuilder()
                 .horsePower(100)
                 .engineCapacity(200)
-                .appComponent(((App)(getApplication())).getAppComponent())
                 .build();
 
 
