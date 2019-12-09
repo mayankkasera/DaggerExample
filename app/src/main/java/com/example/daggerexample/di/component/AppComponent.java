@@ -1,5 +1,6 @@
 package com.example.daggerexample.di.component;
 
+import com.example.daggerexample.di.module.DieselEngineModule;
 import com.example.daggerexample.di.module.DriverModule;
 import com.example.daggerexample.di.scope.ActivityScope;
 import com.example.daggerexample.di.scope.ApplicationScope;
@@ -13,6 +14,6 @@ import dagger.Component;
 @Component(modules = DriverModule.class)
 public interface AppComponent {
 
-    Driver getDriver();
+   ActivityComponent getActivityComponent(DieselEngineModule dieselEngineModule);
 
 }

@@ -8,14 +8,16 @@ public class DieselEngine implements Engine{
 
     private static final String TAG = "CarTag";
 
+    private int hoursPower;
 
-    @Inject
-    public DieselEngine() {
+
+    public DieselEngine(int hoursPower) {
+        this.hoursPower = hoursPower;
     }
 
     @Override
     public void start() {
-        Log.i(TAG, "DieselEngine start : ");
+        Log.i(TAG, "DieselEngine start : "+ hoursPower);
     }
 }
 
