@@ -3,18 +3,18 @@ package com.example.daggerexample.di.component;
 import com.example.daggerexample.MainActivity;
 import com.example.daggerexample.di.module.PetrolEngineModule;
 import com.example.daggerexample.di.module.WheelModule;
+import com.example.daggerexample.di.scope.ActivityScope;
 import com.example.daggerexample.entitys.Car;
 
 import javax.inject.Named;
 import javax.inject.Singleton;
 
-import dagger.Binds;
 import dagger.BindsInstance;
 import dagger.Component;
 
-@Singleton
-@Component(modules = {WheelModule.class, PetrolEngineModule.class})
-public interface CarComponent {
+@ActivityScope
+@Component(dependencies = AppComponent.class,modules = {WheelModule.class, PetrolEngineModule.class})
+public interface ActivityComponent {
 
     Car getCar();
 
@@ -29,8 +29,10 @@ public interface CarComponent {
         @BindsInstance
         Builder engineCapacity(@Named("engine capacity") int engineCapacity);
 
+        Builder appComponent(AppComponent appComponent);
 
-        CarComponent build();
+        ActivityComponent build();
+
     }
 
 

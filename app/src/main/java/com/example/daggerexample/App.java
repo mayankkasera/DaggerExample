@@ -1,25 +1,21 @@
 package com.example.daggerexample;
 
 import android.app.Application;
-
-import com.example.daggerexample.di.component.CarComponent;
-import com.example.daggerexample.di.component.DaggerCarComponent;
+import com.example.daggerexample.di.component.AppComponent;
+import com.example.daggerexample.di.component.DaggerAppComponent;
 
 public class App extends Application {
 
-    private CarComponent carComponent;
+    private AppComponent appComponent;
 
     @Override
     public void onCreate() {
         super.onCreate();
 
-        carComponent = DaggerCarComponent.builder()
-                .horsePower(100)
-                .engineCapacity(200)
-                .build();
+        appComponent = DaggerAppComponent.create();
     }
 
-    public CarComponent getCarComponent() {
-        return carComponent;
+    public AppComponent getAppComponent() {
+        return appComponent;
     }
 }
